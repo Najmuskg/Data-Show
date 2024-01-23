@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+$font--main: "Lato", sans-serif;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, black, orange);
+  font-family: "Open Sans", sans-serif;
+}
+
+.holder {
+  max-width: 1312px;
+  margin-inline: auto;
+}
+
+.content--block {
+  padding: 50px 0;
+}
+.filters--holder {
+  padding: 10px 0;
+  position: relative;
+  transition-delay: 0.2s;
+
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 -10px;
+    position: relative;
+
+    @media only screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    .filter-select {
+      max-width: 100%;
+      padding: 0 10px;
+      width: 100%;
+
+      @media only screen and (min-width: 768px) {
+        flex: 1;
+        max-width: 300px;
+      }
+
+      + .filter-select {
+        margin-top: 25px;
+
+        @media only screen and (min-width: 768px) {
+          margin-top: 0;
+        }
+      }
+
+      .filters {
+        position: relative;
+        width: 100%;
+
+        > div {
+          cursor: pointer;
+        }
+
+        .filter-title {
+          border-bottom: 1px solid rgba(#fff, 0.5);
+          color: #fff;
+          font-size: 24px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          padding: 10px 0;
+          position: relative;
+          z-index: 0;
+
+          &::after {
+            background-image: url(../images/Down-Arrow.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            content: "";
+            display: block;
+            height: 12px;
+            margin-left: auto;
+            margin-top: -1px;
+            width: 12px;
+          }
+
+          .filter-title span {
+            display: block;
+          }
+        }
+
+        .filter-wrapper {
+          max-height: 0px;
+          overflow: hidden;
+          left: 0;
+          padding: 0;
+          position: absolute;
+          top: 40px;
+          width: 100%;
+          z-index: 4;
+          transition: max-height 0.25s ease-in-out;
+
+          @media only screen and (min-width: 768px) {
+          }
+
+          > ul {
+            background-color: #fff;
+            position: relative;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1;
+
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+              a {
+                color: black;
+
+                font-size: 20px;
+                display: block;
+                padding: 8px 12px;
+                text-decoration: none;
+                text-align: left;
+
+                &:hover {
+                  background-color: black;
+                  color: #fff;
+                }
+              }
+
+              + li {
+                border-top: 1px solid #bebab9;
+              }
+            }
+          }
+
+          &.filter-active {
+            max-height: 700px;
+
+            + .filter-title {
+              opacity: 0.2;
+            }
+
+            .cloak {
+              display: block;
+              position: fixed;
+              top: 0;
+              left: 0;
+              background-color: transparent;
+              cursor: default;
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+
+      &.filter-search {
+        form {
+          position: relative;
+
+          input {
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1.5px solid rgba(#1f1f1f, 0.5);
+            color: #1f1f1f;
+
+            font-size: 16px;
+            padding: 10px 0;
+            width: 100%;
+            transition: all 0.3s;
+
+            &:not(:valid) ~ .close-icon {
+              display: none;
+            }
+
+            &:valid ~ button[type="submit"] {
+              display: none;
+            }
+
+            &::-webkit-input-placeholder {
+              color: #1f1f1f;
+              opacity: 1;
+            }
+            &::-moz-placeholder {
+              color: #1f1f1f;
+              opacity: 1;
+            }
+            &:-ms-input-placeholder {
+              color: #1f1f1f;
+              opacity: 1;
+            }
+            &:-moz-placeholder {
+              color: #1f1f1f;
+              opacity: 1;
+            }
+
+            &:focus {
+              border-bottom-color: red;
+            }
+          }
+
+          button[type="submit"] {
+            background-color: transparent;
+            background-image: url(../images/search.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: 0;
+            cursor: pointer;
+            height: 20px;
+            position: absolute;
+            right: 0;
+            top: 11px;
+            width: 20px;
+          }
+
+          .close-icon {
+            background-color: transparent;
+            border: 0;
+            color: black;
+            cursor: pointer;
+            font-size: 1.5rem;
+            position: absolute;
+            text-decoration: none;
+            right: 0;
+            top: 2px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.data-show {
+  margin-top: 50px;
+  p {
+    color: white;
+    font-size: 50px;
+  }
+}
+
+.btn {
+  text-decoration: none;
+  color: yellowgreen;
+  padding: 15px 40px;
+  border: 3px solid yellowgreen;
+  display: inline-block;
+  font-size: 25px;
+  letter-spacing: 12px;
+  line-height: 145%;
+  border-radius: 15px;
+  position: relative;
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    height: 3px;
+    width: 40px;
+    transition: all 0.3s ease-in-out;
+  }
+  &::before {
+    right: 95px;
+    bottom: -3px;
+  }
+  &::after {
+    left: 95px;
+    top: -3px;
+  }
+  &:hover {
+    background-color: black;
+    color: red;
+    transition: all 0.3s ease-in-out;
+    &::after,
+    &::before {
+      width: 0;
+    }
+    span {
+      &::after,
+      &::before {
+        height: 0;
+      }
+    }
+  }
+  span {
+    display: block;
+    position: relative;
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: black;
+      height: 20px;
+      width: 3px;
+      transition: all 0.3s ease-in-out;
+    }
+    &::before {
+      right: -43px;
+      bottom: 7px;
+    }
+    &::after {
+      left: -43px;
+      bottom: 7px;
+    }
+  }
+}

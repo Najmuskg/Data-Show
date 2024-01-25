@@ -5,44 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Show</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="/css/style.min.css">
 </head>
 
 <body>
     <section class="content--block">
         <div class="holder">
-            <div class="filters--holder fade-in" data-scroll="">
-                <div class="filters--holder__filters">
-                    <div class="filter-select">
-                        <div class="filters">
-                            <div class="filter-title">Person Select</div>
 
-                            <div class="filter-wrapper">
-                                <div class="cloak"></div>
+            <div class="select--area">
+                <label for="person">Choose a Member:</label>
 
-                                <ul id="persons">
-                                    <li class="filter"><a data-value="sajjad" class="person" href="#">Sajjad</a></li>
-                                    <li class="filter"><a data-value="akib" class="person" href="#">Akib</a></li>
-                                    <li class="filter"><a data-value="sakib" class="person" href="#">Sakib</a></li>
-                                    <li class="filter"><a data-value="afzal" class="person" href="#">Afzal</a></li>
-                                    <li class="filter"><a data-value="jakir" class="person" href="#">Jakir</a></li>
-                                    <li class="filter"><a data-value="rafat" class="person" href="#">Rafat</a></li>
-                                    <li class="filter"><a data-value="labib" class="person" href="#">Labib</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <select name="persons" id="person-select">
+                    <option class="person" value="">Please choose a Member</option>
+                    <option class="person" value="sajjad">Sajjad</option>
+                    <option class="person" value="akib">Akib</option>
+                    <option class="person" value="sakib">Sakib</option>
+                    <option class="person" value="afzal">Afzal</option>
+                    <option class="person" value="jakir">Jakir</option>
+                    <option class="person" value="rafat">Rafat</option>
+                    <option class="person" value="labib">Labib</option>
+                </select>
             </div>
 
 
             <div class="data-show">
                 <p id="dataShow"></p>
-                <!-- <a href="#" class="btn"><span>Click Me!</span></a> -->
-
-
-
-                
             </div>
         </div>
     </section>
